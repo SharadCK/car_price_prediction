@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h2>Value of a car</h2>
+    </div>
+    <div class="jumbotron big-banner">
+    <div class = "container" >
+        
+        <div class ="row">
+            <form action = "{{ url_for('predict')}}" method="post">
+            <div class="col-sm-6">
+                <h3>Year</h3><input id = "first" name = "Year" type = "number ">
+            </div>
+            <div class="col-sm-6">
+                <h3>Showroom price?(In thousand dollar)</h3><br><input id="second" name="Present_Price" required="required">
+            </div>
+            <div class="col-sm-6">
+                <h3>Kilometeres driven</h3><input id = "third" name = "Kms_Driven" required= "required">
+            </div>
+                <h3>Previous Owner(0 or 1 or 3) ?</h3><br><input id="fourth" name="Owner" required="required">
+            <div class="col-sm-6">
+                <h3>Fuel type?</h3><br>
+                    <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="CNG">CNG</option>
+                    </select>
+            </div>
+            <div class="col-sm-4">
+                <h3>Dealer or Individual</h3><br><select name="Seller_Type_Individual" id="resea" required="required">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <h3>Transmission type</h3><br><select name="Transmission_Mannual" id="research" required="required">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <br><br><button id="sub" type="submit ">Selling Price</button>
+                <br><br><h3>{{ prediction_text }}</h3>
+            </form>
+       
+        </div>
+            </div>
+        </div> 
+    </div>
+
+
+    <style>
+ .big-banner{
+    background-image: url("car.jpg");
+ }
+</style>
+
